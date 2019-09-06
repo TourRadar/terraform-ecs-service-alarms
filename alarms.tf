@@ -8,7 +8,7 @@ locals {
 
 resource "aws_cloudwatch_metric_alarm" "cpu_utilization_high" {
   for_each            = var.cpu_utilization_high_checks
-  alarm_name          = "${var.alarm_prefix}: ECS service cpu utilization is too high"
+  alarm_name          = "${var.alarm_prefix}: ${each.key} ECS service cpu utilization is too high"
   comparison_operator = "GreaterThanOrEqualToThreshold"
   evaluation_periods  = var.cpu_utilization_high_evaluation_periods
   threshold           = each.value
@@ -26,7 +26,7 @@ resource "aws_cloudwatch_metric_alarm" "cpu_utilization_high" {
 
 resource "aws_cloudwatch_metric_alarm" "memory_utilization_high" {
   for_each            = var.memory_utilization_high_checks
-  alarm_name          = "${var.alarm_prefix}: ECS service memory utilization is too high"
+  alarm_name          = "${var.alarm_prefix}: ${each.key} ECS service memory utilization is too high"
   comparison_operator = "GreaterThanOrEqualToThreshold"
   evaluation_periods  = var.memory_utilization_high_evaluation_periods
   threshold           = each.value
