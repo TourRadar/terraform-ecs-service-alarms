@@ -37,8 +37,6 @@ variable "cpu_utilization_high_checks" {
     P1 = 90
     P2 = 85
     P3 = 80
-    P4 = 75
-    P5 = 70
   }
 }
 
@@ -70,8 +68,6 @@ variable "memory_utilization_high_checks" {
     P1 = 90
     P2 = 85
     P3 = 80
-    P4 = 75
-    P5 = 70
   }
 }
 
